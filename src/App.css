@@ -1,5 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
+:root {
+  --selected-primary-color: var(--green-primary-color);
+  --selected-background: var(--green-background);
+  --selected-background-after: var(--green-background-after);
+
+  /* Green */
+  --green-primary-color: rgb(51, 255, 0);
+  --green-background: linear-gradient(rgba(0, 45, 5, 0.749) 50%, rgba(0, 56, 9, 0.616) 50%), linear-gradient(90deg, rgba(0, 66, 17, 0.555), rgba(0, 54, 0, 0.726), rgba(6, 39, 0, 0.726));
+  --green-background-after:  rgba(3, 58, 5, 0.829);
+
+  /* Amber */
+  --amber-primary-color: rgb(255,182,66);
+  --amber-background: linear-gradient(rgba(180, 111, 0, 0.749) 50%, rgba(185, 119, 13, 0.616) 50%), linear-gradient(90deg, rgba(144, 89, 0, 0.555), rgba(233, 155, 31, 0.726), rgba(224, 145, 16, 0.534));
+  --amber-background-after:  rgba(102, 79, 5, 0.829);
+
+  /* Blue */
+  --blue-primary-color: rgb(46,207,255);
+  --blue-background: linear-gradient(rgba(0, 141, 184, 0.749) 50%, rgba(10, 157, 202, 0.616) 50%), linear-gradient(90deg, rgba(11, 104, 133, 0.555), rgba(7, 106, 136, 0.712), rgba(0, 86, 112, 0.534));
+  --blue-background-after:  rgba(0, 95, 124, 0.829);
+
+  /* Contrast */
+  --contrast-primary-color: rgb(255, 255, 255);
+  --contrast-background: linear-gradient(rgba(26, 26, 26, 0.749) 50%, rgba(31, 30, 30, 0.616) 50%), linear-gradient(90deg, rgba(37, 37, 37, 0.555), rgba(8, 8, 8, 0.712), rgba(19, 19, 19, 0.534));
+  --contrast-background-after:  rgba(0, 0, 0, 0.829);
+
+  /* Watermelon */
+  --watermelon-primary-color: rgb(51, 255, 0);
+  --watermelon-background: linear-gradient(rgba(245, 12, 12, 0.749) 50%, rgba(161, 0, 0, 0.616) 50%), linear-gradient(90deg, rgba(126, 0, 0, 0.555), rgba(141, 1, 1, 0.712), rgba(245, 12, 12, 0.534));
+  --watermelon-background-after:  rgba(245, 12, 12, 0.829);
+}
+
 .App {
   animation: textShadow 10s infinite;
   text-align: center;
@@ -12,7 +43,7 @@
 }
 .header{
   background:rgba(255,255,255,0.2);
-  border-bottom:1px solid rgb(51, 255, 0);
+  border-bottom:1px solid var(--selected-primary-color);
   height: 2.5rem;
   display:flex;
   align-items: center;
@@ -34,7 +65,7 @@
 
 .text-input{
   background:rgba(255,255,255,0.2);
-  border-top:1px solid rgb(51, 255, 0);
+  border-top:1px solid var(--selected-primary-color);
   height: 2.5rem;
   position: relative;
   display: flex;
@@ -43,7 +74,7 @@
 }
 
 .message-row{
-  color: rgb(51, 255, 0);
+  color: var(--selected-primary-color);
   display: flex;
   flex-direction: row;
   height: 3rem;
@@ -68,13 +99,21 @@
   overflow: auto;
 }
 
+.message-user {
+  color: var(--selected-primary-color);
+  text-align: left;
+  position: relative;
+  top: 2rem;
+  font-size: .95rem;
+}
+
 .inputBox{
   border-radius: 2rem;
   background-color: inherit;
   height: 50%;
   width: 50vw;
   outline:none;
-  color:rgb(51, 255, 0);
+  color: var(--selected-primary-color);
   font-family: 'Share Tech Mono', monospace;
   font-size: 1.2rem;
   text-indent: .3rem;
@@ -104,6 +143,11 @@
 }
 .send-button[disabled] > svg {
   color: white;
+}
+
+.theme-selector{
+  color: var(--selected-primary-color);
+  font-size: 1rem;
 }
 
 @keyframes flicker {
@@ -244,7 +288,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(3, 58, 5, 0.829);
+  background: var(--selected-background-after);
   opacity: 0;
   z-index: -1;
   pointer-events: none;
@@ -258,7 +302,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(0, 45, 5, 0.749) 50%, rgba(0, 56, 9, 0.616) 50%), linear-gradient(90deg, rgba(0, 66, 17, 0.555), rgba(0, 54, 0, 0.726), rgba(6, 39, 0, 0.726));
+  background: var(--selected-background);
   z-index: -1;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;

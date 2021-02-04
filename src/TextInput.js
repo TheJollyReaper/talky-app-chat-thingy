@@ -1,17 +1,23 @@
 import {useState} from 'react'
 import { AiOutlineSend } from "react-icons/ai";
+import level from "./sfx/level.mp3"
+import key_press from "./sfx/key_press.mp3"
 
 function TextInput(props) {
   const [text, setText] = useState('')
 
   function sendMessage(){
+    new Audio(level).play()
     if(text==='') return // skip the function
     props.send(text)
     setText('')
   }
+
   function keyPressed(e){
     if(e.key==='Enter') {
-      sendMessage()
+      sendMessage();
+    } else {
+      new Audio(key_press).play()
     }
   }
 
