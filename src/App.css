@@ -4,6 +4,10 @@
   --selected-primary-color: var(--green-primary-color);
   --selected-background: var(--green-background);
   --selected-background-after: var(--green-background-after);
+  --selected-message-orientation: var(--left-message-orientation);
+
+  --left-message-orientation: left;
+  --right-message-orientation: right;
 
   /* Green */
   --green-primary-color: rgb(51, 255, 0);

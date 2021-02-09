@@ -3,12 +3,13 @@ import './App.css';
 import TextInput from './TextInput';
 import ThemeSelector from './ThemeSelector'
 import NamePicker from './NamePicker'
-
+import {db, useDB} from './db'
+import Message from './Message'
 
 function App() {
 
   const [name, saveName] = useState('')
-  const [messages,setMessages] = useState([{}])
+  const messages = useDB()
 
   return <div className="App">
     <header className="header">
@@ -23,23 +24,14 @@ function App() {
     </div>
     
     <main className="messages">
-        <div className="message">
-          {/* {messages[0].text} */}
-          {messages.map((message) =>            
-              
-            <div className="message-row">
-              <h2>{message.text}</h2>
-              <p className="date">{message.date}</p>
-              <h3 className="message-user">{"from: " + message.user}</h3>
-            </div>
-            
-            
-            )}
-        </div>
+      {messages.map((msg,i)=> {
+        const isMe = msg.name===name
+        return <Message key={i} {...msg} isMe={isMe} />
+      })}
     </main>
 
     <TextInput 
-      send={(t)=> setMessages([...messages, {text:t, date:new Date().toLocaleString(), user:name}])}
+      send={(t)=> db.send({text:t, date:new Date(), name:name})}
     />
   </div>
 }
